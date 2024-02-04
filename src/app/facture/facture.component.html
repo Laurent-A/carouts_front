@@ -1,0 +1,39 @@
+<ng-template #contentModal>
+    <div class="modal-header">
+      <h4 class="modal-title">Modifier la facture</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="prestataire">Prestataire:</label>
+            <input type="text" class="form-control" id="prestataire" [(ngModel)]="factureSelectionnee.prestataire" name="prestataire" [disabled]="!modalSatut">
+          </div>
+          <div class="form-group">
+            <label for="realisation">Réalisation:</label>
+            <input type="text" class="form-control" id="realisation" [(ngModel)]="factureSelectionnee.realisation"  name="realisation" [disabled]="!modalSatut">
+          </div>
+          <div class="form-group">
+            <label for="prix">Prix:</label>
+            <input type="number" class="form-control" id="prix" [(ngModel)]="factureSelectionnee.prix"  name="prix" [disabled]="!modalSatut">
+          </div>
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control" id="description" rows="3" [(ngModel)]="factureSelectionnee.description"  name="description" [disabled]="!modalSatut"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" class="form-control" id="date" [(ngModel)]="factureSelectionnee.date"  name="date" [disabled]="!modalSatut">
+          </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="toggleEdition()">Éditer</button>
+        <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">Fermer</button>
+        <button type="button" class="btn btn-primary">Enregistrer</button>
+    </div>
+  </ng-template>
+
+  <ng-container *ngTemplateOutlet="contentModal"></ng-container>

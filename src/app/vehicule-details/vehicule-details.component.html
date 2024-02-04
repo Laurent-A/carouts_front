@@ -1,0 +1,13 @@
+<div *ngIf="vehicule">
+    <h2>{{ vehicule.nom }}</h2>
+    <p><strong>Kilométrage:</strong> {{ vehicule.kilometrage }}</p>
+    <p><strong>Description:</strong> {{ vehicule.description }}</p>
+
+    <h3>Factures liées :</h3>
+    <div *ngFor="let facture of vehicule.factures" class="card" (click)="ouvrirModalFacture(facture)">
+        <p><strong>Prix:</strong> {{ facture.prix }}</p>
+        <p><strong>Date:</strong> {{ facture.date | date }}</p>
+    </div>
+
+    <button (click)="retourner()">Retour à la liste des vehicules</button>
+</div>
